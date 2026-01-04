@@ -9,12 +9,13 @@ dir_path_static = "./static"
 dir_path_docs = "./docs"
 dir_path_content = "./content"
 template_path = "./template.html"
+default_basepath = "/"
 
 
 def main():
-    basepath = "/"
-    if sys.argv[0]:
-        basepath = sys.argv[0]
+    basepath = default_basepath
+    if len(sys.argv) > 1:
+        basepath = sys.argv[1]
 
     print("Deleting docs directory...")
     if os.path.exists(dir_path_docs):
